@@ -12,7 +12,8 @@ crud.get_current_user(token.token)
 print((crud.get_current_user(token.token)))
 document = "This is a test"
 doc2 = "hello, Mom!"
-crud.create_document(john.collection, doc2)
-crud.create_document(john.collection, document)
+crud.create_document(john.collection, doc2, "doc2")
+crud.create_document(john.collection, document, "doc1")
 search_string = "hello"
 print(crud.read_document(john.collection, search_string))
+print(crud.get_documents(john.collection))

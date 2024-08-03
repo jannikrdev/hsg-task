@@ -41,10 +41,16 @@ def get_current_user(token):
             return current_user
 
 
-def create_document(collection_name, document):
+def create_document(collection_name, document, title):
     collection = chroma_client.get_or_create_collection(name=collection_name)
-    collection.add(documents=[document], ids=[''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(8))])
+    ids = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(8))
+    collection.add(documents=[document], ids=[ids], metadatas={"filename": title})
+    return ids
 
+def get_documents(collection_name):
+    collection = chroma_client.get_or_create_collection(name=collection_name)
+    res = collection.get()
+    return res
 
 def read_document(collection_name, search_string):
     collection = chroma_client.get_or_create_collection(collection_name)
