@@ -1,2 +1,4 @@
 files/*
 task/__pycache__
+test.txt
+db.sqlite3
