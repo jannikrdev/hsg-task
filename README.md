@@ -17,3 +17,10 @@ Es nutzt ChromaDB für Dokumente und SQLite für das User-System als Datenbanken
 
 Dies setzt die Ordner auf und startet einen lokalen Uvicorn-Server. Der Inhalt der Ordner wird jedes Mal beim letzten Befehl gelöscht (heißt die Datenbanken zurückgesetzt), dies ist durch das manuelle Starten des Uvicorn-Servers über den uvicorn-Befehl vermeidbar.
 
+## Wie nutze ich das Programm?
+Eine umfassende Dokumentation der Nutzung aller Endpunkte ist nach dem Starten des Servers unter http://127.0.0.1:8000/docs erhältlich. Hier finden sich auch die respektiven Curl-Befehle. Ich empfehle, hierüber alle Befehle auszuführen ("Try it out" bei jedem Endpunkt).
+Das User-System funktioniert wie folgt:
+1. Einen Nutzer unter POST /api/users erstellen (username und password Parameter im Body)
+2. Den Nutzer unter PUT /api/users einloggen (username und password Parameter im Body)
+3. Der letzte Befehl gibt einen Token zurück, der bei den Dokumentbefehlen als URL-Parameter angegeben wird (Sicherheitstechnisch nicht für die Produktion geeignet, siehe oben.)
+
