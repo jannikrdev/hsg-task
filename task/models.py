@@ -29,3 +29,4 @@ def create_db_and_tables():
     SQLModel.metadata.create_all(engine)
     with engine.connect() as connection:
         connection.execute(text("PRAGMA foreign_keys=ON"))
+
